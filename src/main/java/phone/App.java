@@ -23,8 +23,13 @@ public class App
 
     System.out.println(contact1.phoneNumber);
     System.out.println(contact2.firstName);
+    Iterator iterator = Contacts.iterator();
+    while(iterator.hasNext()) {
+        final Contact nextContact = (Contact) iterator.next();
+        System.out.println(nextContact.phoneNumber);
+    }
 
-    System.out.println(Contacts.first());
+    //System.out.println(Contacts.first());
 
 
 //        phone.getFirstContact(LinkedList<contact>);
