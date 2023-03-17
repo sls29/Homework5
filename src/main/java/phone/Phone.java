@@ -3,18 +3,23 @@ package phone;
 import java.util.*;
 
 abstract class Phone implements PhoneInterface {
-
+    Contact Contact;
     protected String serviceProvider;
     protected String myPhoneNumber;
-    protected List<Contact> contacts = new LinkedList();
+   // protected TreeSet<Contact> Contacts;
 
     public Phone( String serviceProvider, String myPhoneNumber) {
         this.serviceProvider = serviceProvider;
         this.myPhoneNumber = myPhoneNumber;
+
     }
 
-    public void addContact(String ordNumber, String firstName, String secondName, String phoneNumber){
-        System.out.println(contacts);
-    }
+//    public TreeSet<Contact> addContact(Contact contact) {
+//        Contacts.add(contact);
+//        return Contacts;
+//    }
 
+//    public Contact getFirstContact(LinkedList contacts){
+//        return (phone.Contact) contacts.get(0);
+//   }
 }
