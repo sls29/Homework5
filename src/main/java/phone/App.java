@@ -10,6 +10,10 @@ public class App
 {
     public static void main( String[] args )
     {
+
+    System.out.println(" ");
+    System.out.println("Define three contacts");
+
     TreeSet<Contact> Contacts = new TreeSet<>(new OrdComparator());
 
     Phone phone = new Galaxy6("Orange","0745121212",  "black", 100d, "1234QWERTY5678" );
@@ -33,6 +37,7 @@ public class App
     }
 
     System.out.println(" ");
+    System.out.println("List first and last contact");
 
 //    phone.getFirstContact();
     System.out.println(Contacts.first().ordNumber + " " + Contacts.first().firstName +
@@ -51,11 +56,14 @@ public class App
 
 //        phone.getSecondMessage("phone number");
 
+    System.out.println(" ");
+    System.out.println("Send and retrive messages");
+
     List<Message> messages = new LinkedList<>();
-    Message mess1 = new Message( "Call me back", contact1.phoneNumber);
+    Message mess1 = new Message( "Call me back!", contact1.phoneNumber);
     messages.add(mess1);
 
-    Message mess2 = new Message( "I call you back", contact2.phoneNumber);
+    Message mess2 = new Message( "I'll call you back!", contact2.phoneNumber);
     messages.add(mess2);
 
     System.out.println(" ");
@@ -80,10 +88,13 @@ public class App
     Call call4 = new Call(contact3.phoneNumber);
     calls.add(call4);
 
-    System.out.println(calls.size());
-    System.out.println(messages.size());
+//    System.out.println(calls.size());
+//    System.out.println(messages.size());
 
 //        phone.viewHistory();
+
+    System.out.println(" ");
+    System.out.println("Call history");
     for(int i = 0; i < calls.size(); i++){
         System.out.println(calls.get(i).contactNumber);
     }
