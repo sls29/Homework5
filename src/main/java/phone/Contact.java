@@ -11,6 +11,6 @@ public class Contact {
         this.secondName = secondName;
         this.phoneNumber = phoneNumber;
     }
-
-
 }
+
+

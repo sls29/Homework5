@@ -19,23 +19,28 @@ public class App
 
     Contact contact2 =  new Contact(2, "John", "Dae", "0745131313");
     Contacts.add(contact2);
-    //    phone.addContact(contact2);
 
-    System.out.println(contact1.phoneNumber);
-    System.out.println(contact2.firstName);
+    Contact contact3 = new Contact(3, "Joy", "Dol", "0745333333");
+    Contacts.add(contact3);
+
+
     Iterator iterator = Contacts.iterator();
     while(iterator.hasNext()) {
         final Contact nextContact = (Contact) iterator.next();
-        System.out.println(nextContact.phoneNumber);
+        System.out.println(nextContact.ordNumber +") " +
+                           nextContact.firstName +" " +
+                           nextContact.secondName + " -> " + nextContact.phoneNumber);
     }
 
-    //System.out.println(Contacts.first());
+    System.out.println(" ");
 
-
-//        phone.getFirstContact(LinkedList<contact>);
+//    phone.getFirstContact();
+    System.out.println(Contacts.first().ordNumber + " " + Contacts.first().firstName +
+             " " + Contacts.first().secondName + " " + Contacts.first().phoneNumber);
 
 //    phone.getLastContact();
-
+    System.out.println(Contacts.last().ordNumber + " " + Contacts.last().firstName +
+                " " + Contacts.last().secondName + " " + Contacts.last().phoneNumber);
 // send a message to the first contact from the previously listed
 
 // max number of characters - 100
@@ -46,10 +51,45 @@ public class App
 
 //        phone.getSecondMessage("phone number");
 
+    List<Message> messages = new LinkedList<>();
+    Message mess1 = new Message( "Call me back", contact1);
+    messages.add(mess1);
+
+    Message mess2 = new Message( "I call you back", contact2);
+    messages.add(mess2);
+
+    System.out.println(" ");
+    System.out.println(mess1.message + " " + mess1.contact.phoneNumber);
+    System.out.println(mess2.message + " " + mess2.contact.phoneNumber);
+
+    List<Call> calls = new LinkedList<>();
+
+    Call call1 = new Call(contact1);
+    calls.add(call1);
+
+    Call call2 = new Call(contact2);
+    calls.add(call2);
+
+    Call call3 = new Call(contact1);
+    calls.add(call3);
+
+    Call call4 = new Call(contact3);
+    calls.add(call4);
+
+    System.out.println(calls.size());
+    System.out.println(messages.size());
+
+
+
+
+
+
 // make a call to the second contact from the previously listed
 
 //        phone.call("second phone number");
 
 //        phone.viewHistory();
     }
+
+
 }
