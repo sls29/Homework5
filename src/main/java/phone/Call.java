@@ -2,9 +2,9 @@ package phone;
 
 public class Call {
     String callTime;
-    Contact contact;
-    public Call(Contact contact){
-        this.contact = contact;
+    String contactNumber;
+    public Call(String contactNumber) {
+        this.contactNumber = contactNumber;
 
     }
 }

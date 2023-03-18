@@ -52,15 +52,15 @@ public class App
 //        phone.getSecondMessage("phone number");
 
     List<Message> messages = new LinkedList<>();
-    Message mess1 = new Message( "Call me back", contact1);
+    Message mess1 = new Message( "Call me back", contact1.phoneNumber);
     messages.add(mess1);
 
-    Message mess2 = new Message( "I call you back", contact2);
+    Message mess2 = new Message( "I call you back", contact2.phoneNumber);
     messages.add(mess2);
 
     System.out.println(" ");
-    System.out.println(mess1.message + " " + mess1.contact.phoneNumber);
-    System.out.println(mess2.message + " " + mess2.contact.phoneNumber);
+    System.out.println(mess1.message + " " + mess1.contactNumber);
+    System.out.println(mess2.message + " " + mess2.contactNumber);
 
 //   make a call to the second contact from the previously listed
 
@@ -68,30 +68,25 @@ public class App
 
     List<Call> calls = new LinkedList<>();
 
-    Call call1 = new Call(contact1);
+    Call call1 = new Call(contact1.phoneNumber);
     calls.add(call1);
 
-    Call call2 = new Call(contact2);
+    Call call2 = new Call(contact2.phoneNumber);
     calls.add(call2);
 
-    Call call3 = new Call(contact1);
+    Call call3 = new Call(contact1.phoneNumber);
     calls.add(call3);
 
-    Call call4 = new Call(contact3);
+    Call call4 = new Call(contact3.phoneNumber);
     calls.add(call4);
 
     System.out.println(calls.size());
     System.out.println(messages.size());
 
-
-
-
-
-
-
-
 //        phone.viewHistory();
+    for(int i = 0; i < calls.size(); i++){
+        System.out.println(calls.get(i).contactNumber);
     }
 
-
+    }
 }

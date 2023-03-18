@@ -4,11 +4,11 @@ public class Message {
     public String message;
     public final int messageMaxLength = 100;
     String MessageTime;
-    Contact contact;
+    String contactNumber;
 
 
-    public Message (String message, Contact contact){
+    public Message (String message, String contactNumber){
         this.message = message;
-        this.contact = contact;
+        this.contactNumber = contactNumber;
     }
 }
