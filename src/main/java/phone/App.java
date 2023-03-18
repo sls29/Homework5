@@ -62,6 +62,10 @@ public class App
     System.out.println(mess1.message + " " + mess1.contact.phoneNumber);
     System.out.println(mess2.message + " " + mess2.contact.phoneNumber);
 
+//   make a call to the second contact from the previously listed
+
+//   phone.call("second phone number");
+
     List<Call> calls = new LinkedList<>();
 
     Call call1 = new Call(contact1);
@@ -84,9 +88,7 @@ public class App
 
 
 
-// make a call to the second contact from the previously listed
 
-//        phone.call("second phone number");
 
 //        phone.viewHistory();
     }
