@@ -2,7 +2,6 @@ package phone;
 
 public class Message {
     public String message;
-    public final int messageMaxLength = 100;
     String MessageTime;
     String contactNumber;
 

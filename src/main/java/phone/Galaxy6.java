@@ -14,17 +14,19 @@ public class Galaxy6 extends Samsung {
         this.IMEI = IMEI;
     }
 
-
+    @Override
     public void addContact() {
-            }
 
+    }
+
+    @Override
     public void sendMessage() {
+
     }
 
+    @Override
     public void call() {
-    }
 
-    public void callHistory() {
     }
 }
 

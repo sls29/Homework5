@@ -2,7 +2,7 @@ package phone;
 
 import java.util.*;
 
-abstract class Phone implements PhoneInterface {
+public abstract class Phone implements PhoneInterface {
     protected String serviceProvider;
     protected String myPhoneNumber;
     protected Double batteryLife;
@@ -14,31 +14,41 @@ abstract class Phone implements PhoneInterface {
     }
 
     TreeSet<Contact> Contacts = new TreeSet<>(new OrdComparator());
-//    Iterator iterator = Contacts.iterator();
-//    while(iterator.hasNext()) {
-//        final Contact nextContact = (Contact) iterator.next();
-//        System.out.println(nextContact.ordNumber +") " +
-//                nextContact.firstName +" " +
-//                nextContact.secondName + " -> " + nextContact.phoneNumber);
-//    }
+
+    public void listContacts() {
+        for (Contact nextContact : Contacts) {
+            System.out.println(" ");
+            System.out.println(nextContact.ordNumber + ") " +
+                    nextContact.firstName + " " +
+                    nextContact.secondName + " -> " + nextContact.phoneNumber);
+            System.out.println(" ");
+        }
+    }
     List<Message> messages = new LinkedList<>();
     List<Call> calls = new LinkedList<>();
 
 
     public void addContact(int ordNumber, String firstName, String secondName, String phoneNumber) {
     Contacts.add(new Contact(ordNumber, firstName, secondName, phoneNumber));
+    System.out.println("New contact added");
     }
     public void getFirstContact(){
-        System.out.println(Contacts.first().ordNumber + " " + Contacts.first().firstName +
+        System.out.println("First contact: " + Contacts.first().ordNumber + " " + Contacts.first().firstName +
                 " " + Contacts.first().secondName + " " + Contacts.first().phoneNumber);
     }
     public void getLastContact(){
-        System.out.println(Contacts.last().ordNumber + " " + Contacts.last().firstName +
+        System.out.println("Last contact: " + Contacts.last().ordNumber + " " + Contacts.last().firstName +
                 " " + Contacts.last().secondName + " " + Contacts.last().phoneNumber);
     }
    public void sendMessage(String phoneNumber, String message){
-       messages.add(new Message(phoneNumber, message));
-       this.batteryLife -=1;
+       final int messageMaxLength = 100;
+       if(message.length() < messageMaxLength) {
+           messages.add(new Message(phoneNumber, message));
+           System.out.println("Message send.");
+           this.batteryLife -= 1;
+       } else {
+           System.out.println("Message too long");
+       }
     }
     public void getFirstMessage(String phoneNumber){
         System.out.println(messages.get(0).message + " " + messages.get(0).contactNumber);

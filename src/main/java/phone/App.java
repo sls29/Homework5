@@ -17,8 +17,10 @@ public class App
 
 
     phone.addContact(1, "Joe", "Doe", "0745232323");
-    phone.addContact(1, "Joe", "Doe", "0745232323");
+    phone.addContact(2, "Joe", "Doe", "0745232323");
     phone.addContact(3, "Joy", "Dol", "0745333333");
+
+    phone.listContacts();
 
     phone.getFirstContact();
     phone.getLastContact();
@@ -32,6 +34,7 @@ public class App
     phone.sendMessage("0745232323", "Call me back!");
     phone.sendMessage("0745232323", "I can't talk right now.");
     phone.sendMessage("0745131313", "I'll call you back!");
+    phone.sendMessage("0745131313", "I'll call you backkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk!");
 
     phone.getFirstMessage("0745232323");
     phone.getSecondMessage("0745232323");
