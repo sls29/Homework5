@@ -5,14 +5,16 @@ import java.util.TreeSet;
 
 abstract class Samsung extends Phone {
 
-    String phoneColor;
-    Double batteryLife;
+    protected String phoneColor;
+
 
     public Samsung(String serviceProvider, String myPhoneNumber, String phoneColor, Double batteryLife) {
-        super(serviceProvider, myPhoneNumber);
+        super(serviceProvider, myPhoneNumber, batteryLife);
 
         this.phoneColor = phoneColor;
-        this.batteryLife = batteryLife;
+
 
     }
+
+
 }
