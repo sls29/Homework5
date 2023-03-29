@@ -2,12 +2,10 @@ package phone;
 
 public class Message {
     public String message;
-    String MessageTime;
-    String contactNumber;
 
 
-    public Message (String message, String contactNumber){
+
+    public Message (String message){
         this.message = message;
-        this.contactNumber = contactNumber;
     }
 }

@@ -14,9 +14,10 @@ public abstract class Phone implements PhoneInterface {
     }
 
     TreeSet<Contact> Contacts = new TreeSet<>(new OrdComparator());
-
+    HashMap<String, LinkedList<String>> messageMap = new HashMap<>();
     public void listContacts() {
         for (Contact nextContact : Contacts) {
+            messageMap.put(nextContact.phoneNumber, new LinkedList<>());
             System.out.println(" ");
             System.out.println(nextContact.ordNumber + ") " +
                     nextContact.firstName + " " +
@@ -24,10 +25,6 @@ public abstract class Phone implements PhoneInterface {
             System.out.println(" ");
         }
     }
-    List<Message> messages = new LinkedList<>();
-    List<Call> calls = new LinkedList<>();
-
-
     public void addContact(int ordNumber, String firstName, String secondName, String phoneNumber) {
     Contacts.add(new Contact(ordNumber, firstName, secondName, phoneNumber));
     System.out.println("New contact added");
@@ -40,10 +37,16 @@ public abstract class Phone implements PhoneInterface {
         System.out.println("Last contact: " + Contacts.last().ordNumber + " " + Contacts.last().firstName +
                 " " + Contacts.last().secondName + " " + Contacts.last().phoneNumber);
     }
-   public void sendMessage(String phoneNumber, String message){
+
+    List<String> messages = new LinkedList<>();
+
+    public void sendMessage(String phoneNumber, String message){
        final int messageMaxLength = 100;
        if(message.length() < messageMaxLength) {
-           messages.add(new Message(phoneNumber, message));
+           LinkedList<String> list = messageMap.get(phoneNumber);
+           list.add(message);
+           messageMap.put(phoneNumber, list);
+           System.out.println(list.size());
            System.out.println("Message send.");
            this.batteryLife -= 1;
        } else {
@@ -51,13 +54,21 @@ public abstract class Phone implements PhoneInterface {
        }
     }
     public void getFirstMessage(String phoneNumber){
-        System.out.println(messages.get(0).message + " " + messages.get(0).contactNumber);
+        LinkedList<String> list = messageMap.get(phoneNumber);
+        System.out.println("First message for: " + phoneNumber);
+        System.out.println(list.getFirst());
+        System.out.println(" ");
     }
 
     public void getSecondMessage(String phoneNumber){
-        System.out.println(messages.get(1).message + " " + messages.get(1).contactNumber);
+      LinkedList<String> list = messageMap.get(phoneNumber);
+      List<String> newList = new ArrayList<>(list);
+      System.out.println("Second message for: " + phoneNumber);
+      System.out.println(newList.get(1));
+      System.out.println(" ");
     }
 
+    List<Call> calls = new LinkedList<>();
     public void call(String phoneNumber){
         calls.add(new Call(phoneNumber));
         this.batteryLife -= 2;
