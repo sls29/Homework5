@@ -37,9 +37,6 @@ public abstract class Phone implements PhoneInterface {
         System.out.println("Last contact: " + Contacts.last().ordNumber + " " + Contacts.last().firstName +
                 " " + Contacts.last().secondName + " " + Contacts.last().phoneNumber);
     }
-
-    List<String> messages = new LinkedList<>();
-
     public void sendMessage(String phoneNumber, String message){
        final int messageMaxLength = 100;
        if(message.length() < messageMaxLength) {
